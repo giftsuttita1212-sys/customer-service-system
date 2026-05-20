@@ -282,7 +282,7 @@ export default function Home() {
               <div className="summary-card"><span>เสร็จสิ้น</span><strong>{doneCount}</strong></div>
               <div className="summary-card"><span>รอดำเนินการ</span><strong>{waitingCount}</strong></div>
             </div>
-            <div className="card search-card">
+            <div className="card search-card list-sticky-bar">
               <input value={keyword} onChange={(e) => setKeyword(e.target.value)} placeholder="ค้นหาทะเบียนรถ / ชื่อลูกค้า / เบอร์โทร" />
               <button className="btn primary" onClick={loadCustomers} disabled={loading}>รีเฟรช</button>
               <button className="btn secondary" onClick={() => setPage('form')}>เพิ่มรายการใหม่</button>
@@ -320,7 +320,7 @@ export default function Home() {
       </main>
 
       {viewing && (
-        <div className="modal-backdrop" onClick={() => setViewing(null)}>
+        <div className="modal-backdrop">
           <div className="modal detail-modal" onClick={(e) => e.stopPropagation()}>
             <div className="modal-header">
               <div>
@@ -347,7 +347,7 @@ export default function Home() {
       )}
 
       {deleteTarget && (
-        <div className="modal-backdrop" onClick={() => setDeleteTarget(null)}>
+        <div className="modal-backdrop">
           <div className="modal confirm-modal" onClick={(e) => e.stopPropagation()}>
             <div className="confirm-icon">!</div>
             <h2>ยืนยันการลบข้อมูล</h2>
