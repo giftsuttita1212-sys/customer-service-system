@@ -1,25 +1,35 @@
-# Customer Service System
+# ระบบบันทึกข้อมูลลูกค้า
 
-เว็บระบบบันทึกข้อมูลลูกค้าและงานซ่อมรถ
+เวอร์ชันนี้ปรับใหม่ตามคำขอ:
 
-## สิ่งที่ปรับในเวอร์ชันนี้
+- ใช้ไอคอนเฟืองเป็น favicon และ logo
+- ใช้ฟอนต์ Sarabun
+- หน้าตามินิมอล
+- เชื่อม Firebase config ในโค้ดโดยตรง
+- ใช้ Firebase Firestore เป็นฐานข้อมูลออนไลน์
+- เปลี่ยน alert/confirm ของ Browser เป็น Toast และ Modal ในหน้าเว็บ
 
-- ใช้ไอคอนเฟืองที่ผู้ใช้ส่งมาเป็น Web Icon และโลโก้ใน Sidebar
-- ใช้ฟอนต์ Sarabun ผ่าน `next/font/google`
-- ปรับหน้าตาให้มินิมอลขึ้น สีสว่าง สะอาด ใช้งานง่าย
-- ยังคงเชื่อม Firebase ผ่าน Environment Variables ของ Vercel เหมือนเดิม
+## วิธีอัปโหลดขึ้น GitHub
 
-## การใช้งานกับ Vercel + Firebase
+1. แตกไฟล์ ZIP
+2. เปิดโฟลเดอร์ `customer-service-system`
+3. อัปโหลดไฟล์ทั้งหมดข้างในโฟลเดอร์นี้ทับไฟล์เดิมใน GitHub
+4. Commit changes
+5. รอ Vercel Deploy ใหม่
+6. เปิดเว็บแล้วกด Ctrl + F5
 
-ต้องตั้งค่า Environment Variables ใน Vercel ให้ครบ 6 ตัวนี้:
+## Firestore Rules สำหรับทดสอบ
 
-```text
-NEXT_PUBLIC_FIREBASE_API_KEY
-NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN
-NEXT_PUBLIC_FIREBASE_PROJECT_ID
-NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET
-NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID
-NEXT_PUBLIC_FIREBASE_APP_ID
+```js
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /customers/{document} {
+      allow read, write: if true;
+    }
+  }
+}
 ```
 
-ถ้ายังไม่ใส่ค่า Firebase เว็บจะใช้โหมดทดลองและเก็บข้อมูลใน browser ชั่วคราว
+หมายเหตุ: Rules นี้ใช้สำหรับทดสอบเท่านั้น ก่อนใช้งานจริงควรเพิ่มระบบล็อกอินและปรับ Rules ให้ปลอดภัยกว่าเดิม

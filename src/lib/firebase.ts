@@ -2,25 +2,21 @@ import { initializeApp, getApps } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
-  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
-  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
-  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
-  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID
+  apiKey: 'AIzaSyAwIPVpi4ijIan8jzzjuE27g4ET8WXMYNg',
+  authDomain: 'customer-data-bd35d.firebaseapp.com',
+  projectId: 'customer-data-bd35d',
+  storageBucket: 'customer-data-bd35d.firebasestorage.app',
+  messagingSenderId: '933716999924',
+  appId: '1:933716999924:web:ddd0405be90b5877e2a8a1'
 };
 
 export const isFirebaseReady = Boolean(
   firebaseConfig.apiKey &&
-  firebaseConfig.authDomain &&
-  firebaseConfig.projectId &&
-  firebaseConfig.appId
+    firebaseConfig.authDomain &&
+    firebaseConfig.projectId &&
+    firebaseConfig.appId
 );
 
-const app = isFirebaseReady
-  ? getApps().length
-    ? getApps()[0]
-    : initializeApp(firebaseConfig)
-  : null;
+const app = getApps().length ? getApps()[0] : initializeApp(firebaseConfig);
 
-export const db = app ? getFirestore(app) : null;
+export const db = getFirestore(app);
