@@ -31,16 +31,18 @@ button { cursor: pointer; }
 .layout {
   min-height: 100vh;
   display: grid;
-  grid-template-columns: 236px 1fr;
+  grid-template-columns: 288px minmax(0, 1fr);
 }
 
 .sidebar {
   background: #ffffff;
   border-right: 1px solid var(--line);
-  padding: 20px 14px;
+  padding: 20px 16px;
   position: sticky;
   top: 0;
   height: 100vh;
+  width: 288px;
+  overflow: hidden;
 }
 
 .logo {
@@ -51,6 +53,7 @@ button { cursor: pointer; }
   font-weight: 700;
   line-height: 1.25;
   color: var(--text);
+  min-width: 0;
 }
 .logo img {
   width: 40px;
@@ -58,14 +61,29 @@ button { cursor: pointer; }
   border-radius: 12px;
   background: var(--brand-soft);
   padding: 7px;
+  flex-shrink: 0;
+}
+
+.logo-text {
+  min-width: 0;
+  flex: 1;
+}
+.logo-title {
+  display: block;
+  font-size: 17px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .logo small {
   display: block;
   color: var(--muted);
   font-weight: 400;
-  margin-top: 2px;
-  font-size: 14px;
+  margin-top: 3px;
+  font-size: 13px;
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .menu {
@@ -245,7 +263,7 @@ th {
 .badge.progress { background: var(--progress-bg); color: var(--progress); }
 .badge.wait { background: var(--warning-bg); color: var(--warning); }
 
-.subtitle, .logo, .menu, .summary-card span, .summary-card strong, .image-links, .row-actions, .modal-kicker, .detail-item span, .modal-links a, .empty {
+.subtitle, .menu, .summary-card span, .summary-card strong, .image-links, .row-actions, .modal-kicker, .detail-item span, .modal-links a, .empty {
   white-space: nowrap;
 }
 

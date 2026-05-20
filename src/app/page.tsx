@@ -229,7 +229,10 @@ export default function Home() {
       <aside className="sidebar">
         <div className="logo">
           <img src="/app-icon.png" alt="ไอคอนระบบ" />
-          <div>ประวัติการเข้าใช้บริการของลูกค้า<small>Record of service access</small></div>
+          <div className="logo-text">
+            <span className="logo-title">ประวัติการเข้าใช้บริการของลูกค้า</span>
+            <small>Record of service access</small>
+          </div>
         </div>
         <button className={`menu ${page === 'form' ? 'active' : ''}`} onClick={() => setPage('form')}>＋ บันทึกข้อมูลลูกค้า</button>
         <button className={`menu ${page === 'list' ? 'active' : ''}`} onClick={() => { setPage('list'); loadCustomers(); }}>☰ รายการทั้งหมด</button>
