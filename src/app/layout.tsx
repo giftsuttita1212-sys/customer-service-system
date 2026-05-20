@@ -9,8 +9,8 @@ const sarabun = Sarabun({
 });
 
 export const metadata: Metadata = {
-  title: 'ระบบบันทึกข้อมูลลูกค้า',
-  description: 'ระบบบันทึกข้อมูลลูกค้าและงานซ่อมรถ',
+  title: 'Record of service access',
+  description: 'ประวัติการเข้าใช้บริการของลูกค้า',
   icons: {
     icon: '/app-icon.png',
     shortcut: '/favicon.png',

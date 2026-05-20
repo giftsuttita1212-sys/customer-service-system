@@ -229,7 +229,7 @@ export default function Home() {
       <aside className="sidebar">
         <div className="logo">
           <img src="/app-icon.png" alt="ไอคอนระบบ" />
-          <div>ระบบบันทึกข้อมูลลูกค้า<small>Customer Service</small></div>
+          <div>ประวัติการเข้าใช้บริการของลูกค้า<small>Record of service access</small></div>
         </div>
         <button className={`menu ${page === 'form' ? 'active' : ''}`} onClick={() => setPage('form')}>＋ บันทึกข้อมูลลูกค้า</button>
         <button className={`menu ${page === 'list' ? 'active' : ''}`} onClick={() => { setPage('list'); loadCustomers(); }}>☰ รายการทั้งหมด</button>
@@ -238,7 +238,7 @@ export default function Home() {
       <main className="main">
         <div className="topline">
           <div>
-            <h1>{page === 'form' ? 'ระบบบันทึกข้อมูลลูกค้า' : 'รายการข้อมูลลูกค้า'}</h1>
+            <h1>{page === 'form' ? 'ประวัติการเข้าใช้บริการของลูกค้า' : 'รายการข้อมูลลูกค้า'}</h1>
             <p className="subtitle">{page === 'form' ? 'สำหรับเก็บข้อมูลการเข้ารับบริการและงานซ่อม' : 'รายการที่บันทึกไว้ทั้งหมดสำหรับค้นหาและจัดการข้อมูล'}</p>
           </div>
           <div className="status-ready">เชื่อมต่อ Firebase แล้ว</div>
